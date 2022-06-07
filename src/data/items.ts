@@ -16,7 +16,7 @@ export const itemsData: Titem[] = [
   {
     date: new Date(2022, 6, 16),
     category: "rent",
-    title: "Aluguel APt",
+    title: "AluguelApt",
     value: 2300,
   },
   {

@@ -7,6 +7,8 @@ import { Titem } from "./types/Titem";
 import { categoriesData } from "./data/categories";
 import { itemsData } from "./data/items";
 
+import { InfoArea } from "./components/InfoArea";
+
 import { TableArea } from "./components/TablesArea";
 
 import { curretMonth, filterListByMonth } from "./helpers/dataFilter";
@@ -15,6 +17,10 @@ function App() {
   const [currentMonth, setCurrentMonth] = useState(curretMonth());
   const [fiteredList, setFilteredList] = useState<Titem[]>([]);
   const [items, setItems] = useState(itemsData);
+
+  const handleMonthChange = (newMonth: string) => {
+    setCurrentMonth(newMonth);
+  };
 
   useEffect(() => {
     setFilteredList(filterListByMonth(currentMonth, items));
@@ -26,7 +32,10 @@ function App() {
       </C.Header>
       <C.Body>
         {/* Àrea de informações */}
-
+        <InfoArea
+          currentMonth={currentMonth}
+          onMonthChange={handleMonthChange}
+        />
         {/* Àrea de insersão */}
 
         {/* Tabela de Vaoresl */}
